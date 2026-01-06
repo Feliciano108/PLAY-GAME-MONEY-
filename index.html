@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Wild Roller – Relic Spin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO básico -->
+  <meta name="description" content="Jogo online de entretenimento com moedas virtuais.">
+  <meta name="robots" content="index, follow">
+
+  <!-- ✅ GOOGLE ADSENSE (SÓ UMA VEZ) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2107926620182841"
+     crossorigin="anonymous"></script>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(#3a1c00, #120800);
+      color: #fff;
+      text-align: center;
+    }
+    header {
+      padding: 12px;
+      font-size: 22px;
+      font-weight: bold;
+      background: #5a2a00;
+    }
+    #game {
+      max-width: 420px;
+      margin: auto;
+      padding: 10px;
+    }
+    .slot {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin: 15px 0;
+    }
+    .cell {
+      background: #222;
+      border-radius: 10px;
+      padding: 22px;
+      font-size: 30px;
+    }
+    button {
+      padding: 15px;
+      width: 100%;
+      font-size: 20px;
+      background: linear-gradient(gold, orange);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .ad {
+      margin: 15px 0;
+    }
+    footer {
+      font-size: 12px;
+      opacity: 0.7;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>🎰 Wild Roller – Relic Spin</header>
+
+<div id="game">
+  <div>💰 Moedas: <span id="coins">1000</span></div>
+
+  <!-- 🔝 ANÚNCIO TOPO -->
+  <div class="ad">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2107926620182841"
+         data-ad-slot="4886473438"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <div class="slot">
+    <div class="cell">🦏</div>
+    <div class="cell">💎</div>
+    <div class="cell">🐘</div>
+    <div class="cell">💰</div>
+    <div class="cell">🦏</div>
+    <div class="cell">💎</div>
+    <div class="cell">🐘</div>
+    <div class="cell">💰</div>
+    <div class="cell">🦏</div>
+  </div>
+
+  <button onclick="spin()">RODAR</button>
+
+  <!-- 🔄 ANÚNCIO MEIO (NOVO SLOT CORRETO) -->
+  <div class="ad">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2107926620182841"
+         data-ad-slot="6292066203"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
+  <div id="result">Boa sorte 🍀</div>
+</div>
+
+<footer>
+  Jogo de entretenimento • Moedas virtuais • Sem dinheiro real
+</footer>
+
+<script>
+  const icons = ['🦏','🐘','💰','💎'];
+  let coins = 1000;
+
+  function spin() {
+    if (coins < 10) {
+      document.getElementById('result').innerText = 'Sem moedas 😢';
+      return;
+    }
+
+    coins -= 10;
+    document.getElementById('coins').innerText = coins;
+
+    const cells = document.querySelectorAll('.cell');
+    let values = [];
+
+    cells.forEach(cell => {
+      const v = icons[Math.floor(Math.random() * icons.length)];
+      cell.innerText = v;
+      values.push(v);
+    });
+
+    if (values[0] === values[1] && values[1] === values[2]) {
+      coins += 100;
+      document.getElementById('result').innerText = '🎉 Ganhou 100 moedas!';
+    } else {
+      document.getElementById('result').innerText = 'Tenta outra vez';
+    }
+
+    document.getElementById('coins').innerText = coins;
+  }
+</script>
+
+</body>
+</html>
